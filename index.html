@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Progress bar Circular</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="progress-bar profile">
+    <span></span>
+    <progress id="html" min="0" max="100"></progress>
+  </div>
+  <!-- partial -->
+
+  <script>
+    let progress = 100
+
+    const progressBarAnimation = [
+    ];
+    for (let i = 0; i <= progress; i++) {
+      progressBarAnimation.push({ translate: `${45 * Math.sin(i * 3.6 * (Math.PI / 180))}px ${-45 * Math.cos(i * 3.6 * (Math.PI / 180))}px` })
+    }
+
+    const progressBarTiming = {
+      duration: 2000,
+      iterations: 1,
+      fill: "forwards",
+      easing: "ease"
+    };
+    document.querySelector("span").animate(progressBarAnimation, progressBarTiming);
+
+  </script>
+
+</body>
+
+</html>
